@@ -2,5 +2,4 @@
     <div>
       <slot />
     </div>
-    <ModalRoot />
 </template>

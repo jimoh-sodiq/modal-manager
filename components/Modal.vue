@@ -1,11 +1,12 @@
 <template>
 	<transition name="slide" appear :duration="500">
-		<div
+		<div 
+		@click.stop="$parent"
 			:close="closeModal"
 			class="bg transition-all bg-modal"
 			@click="close"
 		>
-			<div v-if="type === 'normal'" class=" modal bg-white rounded-[10px] overflow-x-hidden overflow-y-auto shadow-xl transform transition-all max-h-[90vh] box-border">
+			<div v-if="type === 'normal'" class=" modal bg-white rounded-[10px] overflow-x-hidden overflow-y-auto shadow-xl transform transition-all box-border">
 				<div class="w-full h-full">
 					<slot />
 				</div>
@@ -15,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { modal } from '@/composables/core/modals'
+import { modal } from '@/composables/modals'
 const props = defineProps({
     modal: {
 		type: String,
@@ -27,7 +28,7 @@ const props = defineProps({
 	}
 })
 const close = (e) => {
-if (e.target.className.includes('bg-modal')) return closeModal()
+	if (e.target.className.includes('bg-modal')) return closeModal()
 }
 const closeModal = () => {
 	modal.close(props.modal)
