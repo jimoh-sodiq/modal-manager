@@ -51,7 +51,8 @@ other modals will take it as parent
 }
 .slide-enter-from,
 .slide-leave-to {
-  transform: scale(0);
-  opacity: 0;
+  /* transform: scale(0); */
+  transform: translateX(-100vw);
+  /* opacity: 0; */
 }
 </style>
