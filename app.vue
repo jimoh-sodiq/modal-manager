@@ -1,6 +1,11 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <ModalRoot />
+    <!-- <ModalRoot /> -->
+    <JModalBase />
   </NuxtLayout>
 </template>
+
+<script setup>
+import JModalBase from "@/components/Jimoh/JModalBase.vue";
+</script>

@@ -1,5 +1,5 @@
 <template>
-	<transition name="slide" appear :duration="500">
+	<!-- <transition name="slide" appear :duration="500">
 		<div 
 		@click.stop="$parent"
 			:close="closeModal"
@@ -12,27 +12,27 @@
 				</div>
 			</div>
 		</div>
-	</transition>
+	</transition> -->
 </template>
 
 <script lang="ts" setup>
-import { modal } from '@/composables/modals'
-const props = defineProps({
-    modal: {
-		type: String,
-		required: true
-	},
-	type: {
-		type: String,
-		default: 'normal'
-	}
-})
-const close = (e) => {
-	if (e.target.className.includes('bg-modal')) return closeModal()
-}
-const closeModal = () => {
-	modal.close(props.modal)
-}
+// import { modal } from '@/composables/modals'
+// const props = defineProps({
+//     modal: {
+// 		type: String,
+// 		required: true
+// 	},
+// 	type: {
+// 		type: String,
+// 		default: 'normal'
+// 	}
+// })
+// const close = (e) => {
+// 	if (e.target.className.includes('bg-modal')) return closeModal()
+// }
+// const closeModal = () => {
+// 	modal.close(props.modal)
+// }
 </script>
 
 <style scoped>
