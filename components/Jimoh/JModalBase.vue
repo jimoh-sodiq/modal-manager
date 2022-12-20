@@ -4,7 +4,7 @@
         <div
           class="modal rounded-[10px] overflow-x-hidden overflow-y-auto shadow-xl transform transition-all box-border"
         >
-          <component :is="LoadedModal" />
+          <component :is="modals[currentModal]" />
         </div>
       </div>
   </transition>
@@ -12,14 +12,23 @@
 
 <script setup>
 import { currentModal, modalIsOpen } from "./ModalState";
-import JModal from "./JModal";
+import JModal from "./JModal.vue";
+import ModalTwo from "./ModalTwo.vue";
+import ModalThree from "./ModalThree.vue"
+
+
+const modals = {
+  JModal,
+  ModalTwo,
+  ModalThree
+}
 
 // this must be in this writing syntax else vite wont recognise it as a dynamic import
-const LoadedModal = ref(null);
+// const LoadedModal = ref(null);
 
-watch(currentModal, (newValue, oldValue) => {
-  LoadedModal.value = defineAsyncComponent(() => import(`./${newValue}.vue`));
-});
+// watch(currentModal, (newValue, oldValue) => {
+//   LoadedModal.value = defineAsyncComponent(() => import(`./${newValue}.vue`));
+// });
 </script>
 
 // hint: you can create a base modal with styling and give it a slot then all
